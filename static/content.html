@@ -1,0 +1,132 @@
+<link rel="stylesheet" type="text/css" href="/static/main.css" />
+<form class="login" method="GET">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_Y05lFY.json" background="transparent" speed="1"
+    style="height: 200px;" loop autoplay></lottie-player>
+  <section class="sec">
+    <input id="age" class="field" type="number" step="any" name="age" placeholder="Age" />
+    <input id="bp" class="field" type="number" step="any" name="bp" placeholder="Blood Pressure" />
+    <input id="pot" class="field" type="number" step="any" name="pot" placeholder="Potassium" />
+  </section>
+  <section class="sec">
+    <input id="sg" class="field" type="number" step="any" name="sg" placeholder="Specific Gravity" />
+    <input id="al" class="field" type="number" step="any" name="al" placeholder="Albumin" />
+    <input id="su" class="field" type="number" step="any" name="su" placeholder="Sugar" />
+  </section>
+  <section class="sec">
+    <select name="rbc" class="drop">
+      <option value="" disabled selected>Red Blood Cells</option>
+      <option value="normal">Normal</option>
+      <option value="abnormal">AbNormal</option>
+    </select>
+    <select name="pc" class="drop">
+      <option value="" disabled selected>Pus Cell</option>
+      <option value="normal">Normal</option>
+      <option value="abnormal">AbNormal</option>
+    </select>
+    <select name="pcc" class="drop">
+      <option value="" disabled selected>Pus Cell Clumps</option>
+      <option value="notpresent">Not Present</option>
+      <option value="present">Present</option>
+    </select>
+  </section>
+  <section class="sec">
+    <select name="ba" class="drop">
+      <option value="" disabled selected>Bacteria</option>
+      <option value="notpresent">Not Present</option>
+      <option value="present">Present</option>
+    </select>
+    <input id="bgr" class="field" type="number" step="any" name="bgr" placeholder="Blood Glucose Random" />
+    <input id="bu" class="field" type="number" step="any" name="bu" placeholder="Blood Urea" />
+  </section>
+  <section class="sec">
+    <input id="sc" class="field" type="number" step="any" name="sc" placeholder="Serum Creatinine" />
+    <input id="sod" class="field" type="number" step="any" name="sod" placeholder="Sodium" />
+    <input id="hemo" class="field" type="number" step="any" name="hemo" placeholder="Hemoglobin" />
+  </section>
+  <section class="sec">
+    <input id="pcv" class="field" type="number" step="any" name="pcv" placeholder="Packed Cell Volume" />
+    <input id="wc" class="field" type="number" step="any" name="wc" placeholder="White Blood Cell Count" />
+    <input id="rc" class="field" type="number" step="any" name="rc" placeholder="Red Blood Cell Count" />
+  </section>
+  <section class="sec">
+    <select name="htn" class="drop">
+      <option value="" disabled selected>Hypertension</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    <select name="dm" class="drop">
+      <option value="" disabled selected>Diabetes Milletus</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    <select name="cad" class="drop">
+      <option value="" disabled selected>Coronary Artery Disease</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+  </section>
+  <section class="sec">
+    <select name="appet" class="drop">
+      <option value="" disabled selected>Appetite</option>
+      <option value="good">Good</option>
+      <option value="bad">Bad</option>
+    </select>
+    <select name="pe" class="drop">
+      <option value="" disabled selected>Pedal Edema</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    <select name="ane" class="drop">
+      <option value="" disabled selected>Anemia</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+  </section>
+  <button onClick="predict(this.form)" class="bt">Predict</button>
+  <script>
+    function predict(form) {
+      data = {
+        age: form.age.value,
+        bp: form.bp.value,
+        sg: form.sg.value,
+        al: form.al.value,
+        su: form.su.value,
+        rbc: form.rbc.options[form.rbc.selectedIndex].value,
+        pc: form.pc.options[form.pc.selectedIndex].value,
+        pcc: form.pcc.options[form.pcc.selectedIndex].value,
+        ba: form.ba.options[form.ba.selectedIndex].value,
+        bgr: form.bgr.value,
+        bu: form.bu.value,
+        sc: form.sc.value,
+        sod: form.sod.value,
+        pot: form.pot.value,
+        hemo: form.hemo.value,
+        pcv: form.pcv.value,
+        wc: form.wc.value,
+        rc: form.rc.value,
+        htn: form.htn.options[form.htn.selectedIndex].value,
+        dm: form.dm.options[form.dm.selectedIndex].value,
+        cad: form.cad.options[form.cad.selectedIndex].value,
+        appet: form.appet.options[form.appet.selectedIndex].value,
+        pe: form.pe.options[form.pe.selectedIndex].value,
+        ane: form.ane.options[form.ane.selectedIndex].value,
+      }
+      var http = new XMLHttpRequest();
+      var url = window.location.href + "data";
+      http.open("POST", url, true);
+      http.setRequestHeader("Content-type", "application/json");
+
+      http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 200) {
+          materialAlert(
+            "Result",
+            "INR <strong>" + http.responseText.substring(0, 5) + "</strong>",
+            () => { }
+          );
+        }
+      };
+      http.send(data);
+    } 
+  </script>
+</form>
