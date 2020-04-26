@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 .login {
   display: flex;
@@ -7,25 +7,25 @@
   text-align: center;
   align-content: center;
   justify-content: center;
-  box-shadow: 2px 2px 10px grey;  
-  width:fit-content;
+  box-shadow: 2px 2px 10px grey;
+  width: fit-content;
   align-self: center;
-  padding:20px;
+  padding: 20px;
   border-radius: 20px;
-  margin:auto;
+  margin: auto;
 }
 .field {
   width: 200px;
-  height:50px;
+  height: 52px;
 }
 
 .drop {
-  padding:10px;
-  margin:8px;
-  width:200px;
-  height:50px;
-  border:0;
-  outline:0;
+  padding: 10px;
+  margin: 8px;
+  width: 210px;
+  height: 50px;
+  border: 0;
+  outline: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom: 2px solid grey;
@@ -36,52 +36,54 @@
 
 .box {
   box-shadow: 2px 2px 10px grey;
-  padding:20px;
+  padding: 10px;
   border-radius: 30px;
   text-align: center;
   animation: shadow, opacity 1000ms ease-in;
 }
 
 .bt {
-  width:200px;
-  height:50px;
-  margin:10px;
-  border-radius:10px;
-  border:0;
-  outline:0;
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: 0;
+  outline: 0;
   align-self: center;
-  color:white;
+  color: white;
   font-size: 20px;
-  background-color:rgb(206, 71, 96);
+  background-color: rgb(206, 71, 96);
 }
 
-.bt:hover{
+.bt:hover {
   transition-duration: 100ms;
-  box-shadow:1px 1px 5px grey;
+  box-shadow: 1px 1px 5px grey;
 }
 
-.bt:active{
+.bt:active {
   transition-duration: 500ms;
-  box-shadow:1px 1px 10px grey;
+  box-shadow: 1px 1px 10px grey;
 }
 
 @keyframes shadow {
-  0%{
-    box-shadow:0px 0px 0px grey;
+  0% {
+    box-shadow: 0px 0px 0px grey;
   }
-  100%{
-    box-shadow:2px 2px 10px grey;
+  100% {
+    box-shadow: 2px 2px 10px grey;
   }
 }
 
 .box > h1 {
-  color:black;
-  font-family: 'Roboto Mono', monospace;
+  color: black;
+  font-family: "Roboto Mono", monospace;
   font-size: 18px;
 }
 
 .player {
-  height:300px;
+  height: 300px;
 }
 
 .sec {
@@ -143,12 +145,12 @@
 
 input {
   margin: 8px;
-  padding: 10px;
+  padding: 0;
+  padding-left: 10px;
   outline: 0;
+  border: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border: 0;
-  height: 30px;
   border-bottom: 2px solid grey;
   border-color: rgba(0, 0, 0, 0.11);
   background-color: rgba(0, 0, 0, 0.027);

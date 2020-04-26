@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="/static/main.css" />
-    <title>ML_PROject</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <script src="/static/js/main.js"></script>
+    <title>Chronic Kidney Disease Predictor</title>
   </head>
   <body>
     <nav>
@@ -20,17 +23,8 @@
       </svg>
       <h1>Chronic Kidney Disease Predictor</h1>
     </nav>
-    
-    <iframe id="frame" src="/static/intro.html"></iframe>
+
+    <iframe id="frame" src="/static/html/intro.html"></iframe>
     <button class="bt" onclick="run()">Go</button>
-    <script>
-      function run(){
-        let frame = document.getElementById('frame');
-        frame.src = "/static/content.html";
-                frame.style.width="100%"
-        frame.style.height="100vh"
-        document.getElementsByClassName('bt')[0].remove();
-      }
-    </script>
   </body>
 </html>
